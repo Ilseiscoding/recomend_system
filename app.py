@@ -82,7 +82,7 @@ def index():
     if request.method == 'POST':
         moviename = request.form['moviename']
         # Genera recomendaciones basadas en el título ingresado
-        recommendations = get_content_based_recommendations(moviename, movie_idx, movies, cosine_sim, n_recommendations=5)
+        recommendations = get_content_based_recommendations(moviename, movie_idx, movies, cosine_sim, n_recommendations=10)
         # Convierte las recomendaciones a una lista
         recommendations = recommendations.tolist()
     
