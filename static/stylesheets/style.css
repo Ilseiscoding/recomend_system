@@ -1,0 +1,49 @@
+body {
+	background-image: url(/static/images/1_5.jpg);
+    background-size: cover;
+	color:white;
+	text-align: center;
+	padding-top:4px;
+}
+
+h1 {
+	padding-top:150px;
+	color:white;
+	text-align:center;
+	font-size: 50px;
+}
+
+p1{
+	font-size:20px;
+	color: black
+}
+
+span {
+	background-color: white;
+}
+
+form {
+	padding-top:50px;
+	width:100%;
+}
+
+/* Nueva regla para la lista de recomendaciones */
+
+	.recommendation-list {
+		list-style-type: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px; /* Espacio entre elementos */
+	}
+	
+	.recommendation-item {
+		background-color: burlywood;
+		padding: 10px;
+		border-radius: 5px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		font-weight: bold;
+		color: black;
+		text-align: center;
+		flex: 1 1 200px; /* Ajusta el tamaño de los ítems */
+}

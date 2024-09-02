@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>"FilmFinder: Descubre Tu Próxima Película Favorita"</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+
+	
+</head>
+<body>
+	<div>
+	<h1><mark style="background-color:blanchedalmond;">FilmFinder: Descubre Tu Próxima Película Favorita</mark></h1>
+	
+		<p1><span>Ingresa el título de la película</span></p1>
+		
+			
+		<form name="passdata" action="/" method="post">
+			<input type="text"	 name="moviename">
+			<input type="submit" value="submit">
+		</form>
+		{% if recommendations %}
+            <h2><mark style="background-color:blanchedalmond;">Recomendaciones:</mark></h2>
+            <ul class="recommendation-list">
+                {% for movie in recommendations %}
+                    <li class="recommendation-item">{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+    </div>
+</body>
+</html>
