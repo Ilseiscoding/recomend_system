@@ -29,29 +29,29 @@ Selección de recomendaciones: Se seleccionan las n_recommendations películas m
 
 API de Flask
 Definición de la Ruta:
-@app.route('/'): Define la ruta principal (la página de inicio) de la aplicación. Es decir, cuando un usuario visita la raíz del sitio web (ej., http://localhost:5000/), esta función se ejecutará.
+@app.route('/'): Define la ruta principal (la página de inicio) de la aplicación cuando un usuario visita la raíz del sitio web ( http://localhost:5000/).
 methods=['GET', 'POST']: Indica que esta ruta puede manejar tanto solicitudes GET como POST.
+Si un usuario simplemente visita la página (http://localhost:5000/), Flask recibe una solicitud GET.
+La función index() se ejecuta para manejar la solicitud, mostrando normalmente la página index.html.
+Si hay un formulario en la página que se envía (como cuando el usuario ingresa un título de película y presiona "Buscar"), Flask recibe una solicitud POST. De nuevo, la función index() se ejecuta, pero esta vez manejará los datos enviados por el formulario, generando recomendaciones de películas en tu caso.
+
 Función index:
 Inicialización de variables: Se inicializa la variable recommendations como None. Esto servirá para almacenar las recomendaciones que se generen.
 Manejo de solicitud POST:
 Obtención del título de película: Si el usuario envía un formulario (solicitud POST), se extrae el nombre de la película que el usuario ingresó usando request.form['moviename'].
 Generación de recomendaciones: Se llama a la función get_content_based_recommendations con el nombre de la película proporcionada por el usuario y otros parámetros necesarios. Esto genera una lista de películas recomendadas.
 Conversión a lista: Las recomendaciones se convierten a una lista con .tolist() para que puedan ser fácilmente manipuladas en la plantilla HTML.
-
-
-
-
 Renderización de la plantilla:
 render_template('index.html', recommendations=recommendations): Renderiza la plantilla index.html y pasa la lista de recomendaciones a la plantilla para que pueda mostrarse en la página web.
 Plantilla HTML (index.html)
 Aunque el código específico de la plantilla index.html no se muestra, sabemos que es un archivo HTML que se encuentra en el directorio de plantillas de Flask (normalmente templates/). En esta plantilla:
-Formulario de Entrada: Probablemente contiene un formulario donde el usuario puede ingresar el título de una película.
+Formulario de Entrada: Contiene un formulario donde el usuario puede ingresar el título de una película.
 Muestra de Recomendaciones: Si hay recomendaciones generadas, estas se muestran en la página web utilizando las variables pasadas desde Flask (recommendations).
 INSTRUCCIONES PARA LA EJECUCIÓN DEL SISTEMA:
 
 Estructura del proyecto:
 
-/mi_proyecto
+/Sistema de Recomendación
 │
 ├── app.py                   # Archivo principal de Flask 
 ├── cosine_similarity.pkl    # Archivo pickle generado  
